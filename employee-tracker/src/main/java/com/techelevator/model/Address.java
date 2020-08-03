@@ -21,6 +21,16 @@ public class Address {
 		this.postal = postal;
 		this.country = country;
 	}
+	
+	public Address() {
+		
+		this.street = "";
+		this.suite = "";
+		this.city = "";
+		this.region = "";
+		this.postal = "";
+		this.country = "";
+	}
 
 
 	public int getId() {

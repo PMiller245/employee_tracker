@@ -3,7 +3,7 @@ package com.techelevator.model;
 public class Skill {
 	
 	private int skillId;
-	private int fieldId;
+	private Field field;
 	private int experience;
 	private String summary;
 	
@@ -11,10 +11,10 @@ public class Skill {
 	
 	
 
-	public Skill(int skillId, int fieldId, int experience, String summary) {
+	public Skill(int skillId, Field field, int experience, String summary) {
 		super();
 		this.skillId = skillId;
-		this.fieldId = fieldId;
+		this.field = field;
 		this.experience = experience;
 		this.summary = summary;
 	}
@@ -39,16 +39,16 @@ public class Skill {
 
 
 
-	public int getFieldId() {
-		return fieldId;
+	public Field getField() {
+		return field;
 	}
 
 
 
 
 
-	public void setFieldId(int fieldId) {
-		this.fieldId = fieldId;
+	public void setField(Field field) {
+		this.field = field;
 	}
 
 

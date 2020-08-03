@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import com.techelevator.model.Address;
 import com.techelevator.model.Employee;
 
 
@@ -19,6 +20,9 @@ public class EmployeeSqlDao implements EmployeeDao {
 	
 	private JdbcTemplate template;
 
+	@Autowired
+	AddressDao addressDao;
+
 	
 	@Autowired
 	public EmployeeSqlDao(DataSource datasource) {
@@ -26,7 +30,8 @@ public class EmployeeSqlDao implements EmployeeDao {
 		this.template = new JdbcTemplate (datasource);
 		
 	}
-
+	
+	
 	@Override
 	public List<Employee> getAllEmployees() {
 		String sqlEmployees = "SELECT * FROM employee";
@@ -63,20 +68,23 @@ public class EmployeeSqlDao implements EmployeeDao {
 	private Employee mapResultToEmployee(SqlRowSet result) {
 		
 		int employeeId = result.getInt("employee_id");
-		 String firstName = result.getString("first_name");
+		String firstName = result.getString("first_name");
 		String lastName = result.getString("last_name");
-		 String contactEmail = result.getString("contact_email");
+		String contactEmail = result.getString("contact_email");
 		String companyEmail = result.getString("company_email");
-		 String birthDate = result.getString("birth_date");
-		 String hiredDate = result.getString("hired_date");
-		 String role = result.getString("role");
+		String birthDate = result.getString("birth_date");
+		String hiredDate = result.getString("hired_date");
+		String role = result.getString("role");
 		String businessUnit = result.getString("business_unit");
-		 int addressId = result.getInt("address_id");
+		Address address = new Address();
+		address.setId(result.getInt("address_id"));
+		address = addressDao.getAddressById(address.getId());
+			
 		 String assignedTo = result.getString("assigned_to");
 	
 	    Employee retrievedEmployee = new Employee(employeeId, firstName,lastName, contactEmail, companyEmail,
-				 birthDate,  hiredDate,  role,  businessUnit,  addressId,  assignedTo);
-	    		
+				 birthDate,  hiredDate,  role,  businessUnit,  address,  assignedTo);
+	  //TODO optimize this query to reduce database hits
 
 	    return retrievedEmployee;
 	}

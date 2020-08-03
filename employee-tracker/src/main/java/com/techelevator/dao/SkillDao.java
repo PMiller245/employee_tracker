@@ -6,7 +6,7 @@ import com.techelevator.model.Skill;
 
 public interface SkillDao {
 	
-	List<Skill> getSkillsFromEmployee(int employeeId);
+	List<Skill> getSkillsForEmployee(int employeeId);
 	
 	Skill addSkillToEmployee(int employeeId, Skill skill);
 	

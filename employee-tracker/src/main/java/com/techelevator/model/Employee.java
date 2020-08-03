@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Employee {
 	
 	private int employeeId;
@@ -11,12 +13,13 @@ public class Employee {
 	private String hiredDate;
 	private String role;
 	private String businessUnit;
-	private int addressId;
+	private Address address;
+	private List <Skill> skills;
 	private String assignedTo;
 	
 	
 	public Employee(int id, String firstName, String lastName, String contactEmail, String companyEmail,
-			String birthDate, String hiredDate, String role, String businessUnit, int address_id, String assignedTo) {
+			String birthDate, String hiredDate, String role, String businessUnit, Address address, String assignedTo) {
 		super();
 		this.employeeId = id;
 		this.firstName = firstName;
@@ -27,7 +30,7 @@ public class Employee {
 		this.hiredDate = hiredDate;
 		this.role = role;
 		this.businessUnit = businessUnit;
-		this.addressId = address_id;
+		this.address = address;
 		this.assignedTo = assignedTo;
 	}
 
@@ -122,13 +125,13 @@ public class Employee {
 	}
 
 
-	public int getAddress_id() {
-		return addressId;
+	public Address getAddress() {
+		return address;
 	}
 
 
-	public void setAddress_id(int address_id) {
-		this.addressId = address_id;
+	public void setAddress(int address_id) {
+		this.address = address;
 	}
 
 
