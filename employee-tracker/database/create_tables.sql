@@ -13,16 +13,16 @@ DROP TABLE field;
 CREATE TABLE employee
 (
     employee_id serial,
-    firstName varchar(30) NOT NULL,
-    lastName varchar(30) NOT NULL,
-    contactEmail varchar(70),
-    companyEmail varchar(70) NOT NULL,
-    birthDate varchar (15) NOT NULL,
-    hiredDate varchar(15) NOT NULL,
+    first_name varchar(30) NOT NULL,
+    last_name varchar(30) NOT NULL,
+    contact_email varchar(70),
+    company_email varchar(70) NOT NULL,
+    birth_date varchar (15) NOT NULL,
+    hired_date varchar(15) NOT NULL,
     role varchar (30) NOT NULL,
-    businessUnit varchar(255),
+    business_unit varchar(255),
     address_id integer,
-    assignedTo varchar (30),
+    assigned_to varchar (30),
     CONSTRAINT pk_employee_id PRIMARY KEY (employee_id)
     
 );
@@ -80,8 +80,10 @@ ALTER TABLE skill ADD FOREIGN KEY (field_id) REFERENCES field(field_id);
 
 INSERT INTO address (street, suite, city, region, postal, country) VALUES ('beford', 'st 300', 'gpp', 'mi', '48230', 'us');
 
-INSERT INTO employee  (firstName, lastName, contactEmail, companyEmail, birthDate, hiredDate, role, businessUnit,address_id,assignedTo) VALUES 
+INSERT INTO employee  (first_name, last_name, contact_email, company_email, birth_date, hired_date, role, business_unit,address_id,assigned_to) VALUES 
 ('Peter', 'Miller', 'test@test.gmail', 'peter.miller@perficient.com', '1/1/1980', '1/1/2010', 'Jr Dev', 'Sales', 1 , 'Dave');
+INSERT INTO employee  (first_name, last_name, contact_email, company_email, birth_date, hired_date, role, business_unit,address_id,assigned_to) VALUES 
+('NotPeter', 'NotMiller', 'test@test.gmail', 'notpeter.miller@perficient.com', '2/1/1980', '2/1/2010', 'Dev', 'Sales', 1 , 'Not Dave');
 
 INSERT INTO field (name, type) VALUES ('Underwater Basket Weaving', 'Essential');
 
