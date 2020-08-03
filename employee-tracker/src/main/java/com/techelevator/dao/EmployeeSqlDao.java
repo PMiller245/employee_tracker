@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,8 @@ public class EmployeeSqlDao implements EmployeeDao {
 	
 	private JdbcTemplate template;
 
+	
+	@Autowired
 	public EmployeeSqlDao(DataSource datasource) {
 	
 		this.template = new JdbcTemplate (datasource);
@@ -26,11 +29,11 @@ public class EmployeeSqlDao implements EmployeeDao {
 
 	@Override
 	public List<Employee> getAllEmployees() {
-		String sqlEmployees = "SELECT * FROM employees";
+		String sqlEmployees = "SELECT * FROM employee";
 		
 		SqlRowSet results = template.queryForRowSet(sqlEmployees);
 
-		return null;
+		return mapResultsToEmployees(results);
 	}
 
 	@Override
