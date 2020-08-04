@@ -10,7 +10,7 @@ public interface SkillDao {
 	
 	Skill addSkillToEmployee(int employeeId, Skill skill);
 	
-	Skill findSkillByEmployeeId(int employeeId, int skillId);
+	Skill findSkillByEmployeeIdAndSkillId(int employeeId, int skillId);
 	
 	Skill updateSkillOnEmployee(int employeeId, Skill skill);
 	

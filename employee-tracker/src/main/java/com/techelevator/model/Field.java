@@ -13,6 +13,12 @@ public class Field {
 		this.name = name;
 		this.type = type;
 	}
+	
+	public Field() {
+		super();
+		this.name = "";
+		this.type = "";
+	}
 
 	public int getFieldId() {
 		return fieldId;

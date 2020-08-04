@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.techelevator.model.Address;
 import com.techelevator.model.Employee;
+import com.techelevator.model.Skill;
 
 
 
@@ -22,7 +23,9 @@ public class EmployeeSqlDao implements EmployeeDao {
 
 	@Autowired
 	AddressDao addressDao;
-
+	
+	@Autowired
+	SkillDao skillDao;
 	
 	@Autowired
 	public EmployeeSqlDao(DataSource datasource) {
@@ -43,8 +46,18 @@ public class EmployeeSqlDao implements EmployeeDao {
 
 	@Override
 	public Employee getEmployeeById(int employeeId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Employee employee = new Employee();
+		
+		String sqlEmployeeById = "SELECT * FROM employee WHERE employee_id = ?";
+		
+		SqlRowSet results = template.queryForRowSet(sqlEmployeeById, employeeId);
+		
+		if(results.next()) {
+			employee = mapResultToEmployee(results);
+		}
+
+		return employee;
 	}
 
 	@Override
@@ -76,14 +89,18 @@ public class EmployeeSqlDao implements EmployeeDao {
 		String hiredDate = result.getString("hired_date");
 		String role = result.getString("role");
 		String businessUnit = result.getString("business_unit");
+		String assignedTo = result.getString("assigned_to");
+		
 		Address address = new Address();
 		address.setId(result.getInt("address_id"));
 		address = addressDao.getAddressById(address.getId());
-			
-		 String assignedTo = result.getString("assigned_to");
+		
+		List <Skill> skills = skillDao.getSkillsForEmployee(employeeId);
+		
+		
 	
 	    Employee retrievedEmployee = new Employee(employeeId, firstName,lastName, contactEmail, companyEmail,
-				 birthDate,  hiredDate,  role,  businessUnit,  address,  assignedTo);
+				 birthDate,  hiredDate,  role,  businessUnit,  address,  assignedTo, skills);
 	  //TODO optimize this query to reduce database hits
 
 	    return retrievedEmployee;

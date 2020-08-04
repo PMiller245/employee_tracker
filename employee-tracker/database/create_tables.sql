@@ -86,10 +86,14 @@ INSERT INTO employee  (first_name, last_name, contact_email, company_email, birt
 ('NotPeter', 'NotMiller', 'test@test.gmail', 'notpeter.miller@perficient.com', '2/1/1980', '2/1/2010', 'Dev', 'Sales', 1 , 'Not Dave');
 
 INSERT INTO field (name, type) VALUES ('Underwater Basket Weaving', 'Essential');
+INSERT INTO field (name, type) VALUES ('Aboveground Basket Weaving', 'Non-Essential');
 
 INSERT INTO skill (field_id, experience, summary) VALUES (1, 1, 'Wove baskets underwater');
+INSERT INTO skill (field_id, experience, summary) VALUES (2, 12, 'Wove baskets not underwater');
 
 INSERT INTO employee_skill (employee_id, skill_id) VALUES (1,1);
+INSERT INTO employee_skill (employee_id, skill_id) VALUES (1,2);
+INSERT INTO employee_skill (employee_id, skill_id) VALUES (2,2);
 
 
 

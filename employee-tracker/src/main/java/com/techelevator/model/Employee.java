@@ -19,7 +19,7 @@ public class Employee {
 	
 	
 	public Employee(int id, String firstName, String lastName, String contactEmail, String companyEmail,
-			String birthDate, String hiredDate, String role, String businessUnit, Address address, String assignedTo) {
+			String birthDate, String hiredDate, String role, String businessUnit, Address address, String assignedTo, List <Skill> skills) {
 		super();
 		this.employeeId = id;
 		this.firstName = firstName;
@@ -32,6 +32,11 @@ public class Employee {
 		this.businessUnit = businessUnit;
 		this.address = address;
 		this.assignedTo = assignedTo;
+		this.skills = skills;
+	}
+	
+	public Employee() {
+		
 	}
 
 
@@ -143,6 +148,23 @@ public class Employee {
 	public void setAssignedTo(String assignedTo) {
 		this.assignedTo = assignedTo;
 	}
+
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
 
 	
 
