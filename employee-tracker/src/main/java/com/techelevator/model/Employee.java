@@ -14,12 +14,12 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	
-	@Email
-	@NotBlank (message="Contact email required")
+	//@Email
+	//@NotBlank (message="Contact email required")
 	private String contactEmail;
 	
-	@Email
-	@NotBlank(message="Company email required")
+	//@Email
+	//@NotBlank(message="Company email required")
 	private String companyEmail;
 	
 	private String birthDate;
