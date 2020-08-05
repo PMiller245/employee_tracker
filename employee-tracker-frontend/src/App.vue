@@ -14,6 +14,10 @@
   color: #2c3e50;
 }
 
+#app h2 {
+  color:#42b983;
+}
+
 #nav {
   padding: 30px;
 }

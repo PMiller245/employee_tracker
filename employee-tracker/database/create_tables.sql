@@ -80,10 +80,8 @@ ALTER TABLE skill ADD FOREIGN KEY (field_id) REFERENCES field(field_id);
 
 INSERT INTO address (street, suite, city, region, postal, country) VALUES ('beford', 'st 300', 'gpp', 'mi', '48230', 'us');
 
-INSERT INTO employee  (first_name, last_name, contact_email, company_email, birth_date, hired_date, role, business_unit,address_id,assigned_to) VALUES 
-('Peter', 'Miller', 'test@test.gmail', 'peter.miller@perficient.com', '1/1/1980', '1/1/2010', 'Jr Dev', 'Sales', 1 , 'Dave');
-INSERT INTO employee  (first_name, last_name, contact_email, company_email, birth_date, hired_date, role, business_unit,address_id,assigned_to) VALUES 
-('NotPeter', 'NotMiller', 'test@test.gmail', 'notpeter.miller@perficient.com', '2/1/1980', '2/1/2010', 'Dev', 'Sales', 1 , 'Not Dave');
+INSERT INTO employee  (first_name, last_name, contact_email, company_email, birth_date, hired_date, role, business_unit,address_id,assigned_to) VALUES ('Peter', 'Miller', 'test@test.gmail', 'peter.miller@perficient.com', '1/1/1980', '1/1/2010', 'Jr Dev', 'Sales', 1 , 'Dave');
+INSERT INTO employee  (first_name, last_name, contact_email, company_email, birth_date, hired_date, role, business_unit,address_id,assigned_to) VALUES ('NotPeter', 'NotMiller', 'test@test.gmail', 'notpeter.miller@perficient.com', '2/1/1980', '2/1/2010', 'Dev', 'Sales', 1 , 'Not Dave');
 
 INSERT INTO field (name, type) VALUES ('Underwater Basket Weaving', 'Essential');
 INSERT INTO field (name, type) VALUES ('Aboveground Basket Weaving', 'Non-Essential');

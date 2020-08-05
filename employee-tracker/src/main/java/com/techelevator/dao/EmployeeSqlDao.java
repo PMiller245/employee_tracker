@@ -62,8 +62,17 @@ public class EmployeeSqlDao implements EmployeeDao {
 
 	@Override
 	public Employee createEmployee(Employee employee) {
+		
+		String sqlInsertEmployee = "INSERT INTO employee (first_name, last_name, contact_email, "
+				+ "company_email, birth_date, hired_date, role, business_unit,assigned_to) VALUES " + 
+				"(?, ?, ?, ?, ?, ?, ?, ? , ?) RETURNING employee_id";
+		
+		int id = template.queryForObject(sqlInsertEmployee,int.class,employee.getFirstName(), employee.getLastName(), employee.getContactEmail(), 
+				employee.getCompanyEmail(), employee.getBirthDate(), employee.getHiredDate(), employee.getRole(), employee.getBusinessUnit(),employee.getAssignedTo());
+		
+		employee.setId(id);
 		// TODO Auto-generated method stub
-		return null;
+		return employee;
 	}
 
 	@Override

@@ -8,5 +8,9 @@ export default{
 
     getEmployees(){
         return http.get('/employees');
+    },
+
+    addEmployee(newEmployee){
+        return http.post('/employees', newEmployee);
     }
 }

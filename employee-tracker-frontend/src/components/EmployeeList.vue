@@ -1,13 +1,15 @@
 <template>
   <div>
-      <h1> This is the employee component </h1>
+      <h1> Employees </h1>
       <div v-for="employee in allEmployees" v-bind:key="employee.id" >
-          <h3>{{employee.firstName}} {{employee.lastName}}</h3>
-          <p>{{employee.hiredDate}}</p>
-          <h4>Summary of Skills</h4>
-          <div v-for="skill in employee.skills" v-bind:key="skill.id">
+          <h2>{{employee.firstName}} {{employee.lastName}}</h2>
+          <p>Hire Date: {{employee.hiredDate}}</p>
+          <h3>Summary of Skills</h3>
+          <div class="skills" v-for="skill in employee.skills" v-bind:key="skill.id">
+              <h4> {{skill.field.name}}: {{skill.experience}} months of experience</h4>
             <p>{{skill.summary}}</p>
-            </div>
+            
+        </div>
 
       </div>
     
@@ -51,5 +53,9 @@ export default {
 </script>
 
 <style>
+
+.skills{
+    background-color: bisque;
+}
 
 </style>

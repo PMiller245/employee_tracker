@@ -38,6 +38,21 @@ public class Employee {
 	public Employee() {
 		
 	}
+	
+	public Employee( String firstName, String lastName, String contactEmail, String companyEmail,
+			String birthDate, String hiredDate, String role, String businessUnit, String assignedTo) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.contactEmail = contactEmail;
+		this.companyEmail = companyEmail;
+		this.birthDate = birthDate;
+		this.hiredDate = hiredDate;
+		this.role = role;
+		this.businessUnit = businessUnit;
+		this.assignedTo = assignedTo;
+		
+	}
 
 
 	public int getId() {
