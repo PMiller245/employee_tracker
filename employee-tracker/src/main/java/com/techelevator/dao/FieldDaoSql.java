@@ -10,7 +10,7 @@ import com.techelevator.model.Field;
 
 @Component
 public class FieldDaoSql implements FieldDao {
-	
+
 	private JdbcTemplate template;
 
 	public FieldDaoSql(DataSource datasource) {
@@ -19,33 +19,30 @@ public class FieldDaoSql implements FieldDao {
 
 	@Override
 	public Field getFieldById(int fieldId) {
-		
+
 		Field field = new Field();
-		
+
 		String sqlFieldById = "SELECT * FROM field WHERE field_id = ?";
-		
+
 		SqlRowSet results = template.queryForRowSet(sqlFieldById, fieldId);
-		
-		if(results.next()) {
+
+		if (results.next()) {
 			field = mapResultsToField(results);
 		}
-		
+
 		return field;
 	}
-	
-	
+
 	private Field mapResultsToField(SqlRowSet results) {
-		
+
 		int fieldId = results.getInt("field_id");
 		String name = results.getString("name");
 		String type = results.getString("type");
-		
+
 		Field field = new Field(fieldId, name, type);
-		
+
 		return field;
-		
+
 	}
-	
-	
 
 }

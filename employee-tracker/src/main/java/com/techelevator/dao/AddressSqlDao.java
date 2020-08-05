@@ -10,33 +10,31 @@ import com.techelevator.model.Address;
 
 @Component
 public class AddressSqlDao implements AddressDao {
-	
+
 	private JdbcTemplate template;
 
 	public AddressSqlDao(DataSource datasource) {
-		
+
 		this.template = new JdbcTemplate(datasource);
-		
+
 	}
 
 	@Override
 	public Address getAddressById(int addressId) {
 		
-		
-		
+		Address address = new Address();
+
 		String sqlAddress = "SELECT * FROM address WHERE address_id = ?";
-		
+
 		SqlRowSet result = template.queryForRowSet(sqlAddress, addressId);
-		if(result.next()) {
-			return mapResultToAddress(result);
+		if (result.next()) {
+			address = mapResultToAddress(result);
 		}
-		return null;
+		return address;
 	}
-	
-	
-	
-	private Address mapResultToAddress( SqlRowSet result) {
-		
+
+	private Address mapResultToAddress(SqlRowSet result) {
+
 		int addressId = result.getInt("address_id");
 		String street = result.getString("street");
 		String suite = result.getString("suite");
@@ -44,12 +42,11 @@ public class AddressSqlDao implements AddressDao {
 		String region = result.getString("region");
 		String postal = result.getString("postal");
 		String country = result.getString("country");
-		
-		Address retrievedAddress = new Address(addressId, street, suite, city, 
-				region, postal, country); 
-		
+
+		Address retrievedAddress = new Address(addressId, street, suite, city, region, postal, country);
+
 		return retrievedAddress;
-		
+
 	}
 
 }

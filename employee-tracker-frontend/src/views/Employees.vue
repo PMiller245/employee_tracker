@@ -1,11 +1,12 @@
 <template>
 <div class = "main-container">
   <div class="employee-list-container">
-  <employee-list />
+    <employee-list />
   </div>
+
   <div class = "add-employee-container">
-<add-employee />
-    </div>
+    <add-employee />
+  </div>
   
   </div>
 </template>

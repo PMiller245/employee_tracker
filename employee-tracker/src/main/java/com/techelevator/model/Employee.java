@@ -2,13 +2,26 @@ package com.techelevator.model;
 
 import java.util.List;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+
+
 public class Employee {
 	
+	//TODO add server side validation
 	private int employeeId;
 	private String firstName;
 	private String lastName;
+	
+	@Email
+	@NotBlank (message="Contact email required")
 	private String contactEmail;
+	
+	@Email
+	@NotBlank(message="Company email required")
 	private String companyEmail;
+	
 	private String birthDate;
 	private String hiredDate;
 	private String role;
@@ -16,6 +29,7 @@ public class Employee {
 	private Address address;
 	private List <Skill> skills;
 	private String assignedTo;
+	
 	
 	
 	public Employee(int id, String firstName, String lastName, String contactEmail, String companyEmail,
@@ -39,6 +53,7 @@ public class Employee {
 		
 	}
 	
+	//Constructor for post requests, no address, skills or id
 	public Employee( String firstName, String lastName, String contactEmail, String companyEmail,
 			String birthDate, String hiredDate, String role, String businessUnit, String assignedTo) {
 		super();

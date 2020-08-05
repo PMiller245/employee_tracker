@@ -31,6 +31,8 @@ public class Address {
 		this.postal = "";
 		this.country = "";
 	}
+	
+
 
 
 	public int getId() {

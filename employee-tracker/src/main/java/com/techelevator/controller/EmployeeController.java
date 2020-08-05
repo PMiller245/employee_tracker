@@ -25,7 +25,6 @@ public class EmployeeController {
 	EmployeeDao employees;
 	
 
-	
 	@RequestMapping(path= "", method = RequestMethod.GET)
 	public List<Employee> getAllEmployees(){
 		
