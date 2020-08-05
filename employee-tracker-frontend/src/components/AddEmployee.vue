@@ -62,8 +62,7 @@ export default {
       employeeService.addEmployee(this.newEmployee).then(response => {
         if(response.status == 201){
           window.alert("Employee created");
-          this.$router.refresh();
-
+          this.$router.go();
         }
          
         
